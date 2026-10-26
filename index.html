@@ -201,7 +201,7 @@
     border: 1px solid rgba(74,168,255,.2);
     border-radius: 12px;
     width: 200px;
-    overflow: hidden;
+    /* Убрали overflow: hidden, чтобы 3D-куб не обрезался! */
     transition: .3s;
     box-shadow: 0 5px 15px rgba(0,0,0,.3);
   }
@@ -218,6 +218,7 @@
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(74,168,255,.1);
+    border-radius: 12px 12px 0 0; /* Закругление сверху */
   }
   .player-skin {
     background: #0d1424;
@@ -268,7 +269,7 @@
   .top-ananas    { background-position: -64px -128px;  transform: rotateX(90deg) translateZ(32px); }
   .bottom-ananas { background-position: -64px 0px;     transform: rotateX(-90deg) translateZ(32px); }
 
-  /* Текстура для Саши (имя файла точно как в репозитории) */
+  /* Текстура для Саши */
   .face-sasha { background-image: url('Sasha_Russ2012.png'); }
   .front-sasha  { background-position: -64px -64px;   transform: translateZ(32px); }
   .back-sasha   { background-position: -192px -64px;  transform: rotateY(180deg) translateZ(32px); }
@@ -279,6 +280,7 @@
 
   .player-info {
     padding: 15px;
+    border-radius: 0 0 12px 12px; /* Закругление снизу */
   }
   .player-name {
     color: #fff;
