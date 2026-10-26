@@ -235,17 +235,34 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* НАСТРОЙКА ВЫРЕЗАНИЯ ГОЛОВЫ ИЗ ТВОЕГО ФАЙЛА */
-  .skin-head-img {
-    width: 8px;               /* Базовый размер текстурки */
-    height: 8px;
-    object-fit: none;         /* Отключаем сжатие картинки */
-    object-position: -8px -8px; /* Берем ровно лицо (верхний левый угол) */
-    transform: scale(8);      /* Увеличиваем картинку в 8 раз для четкости */
-    transform-origin: center;
-    image-rendering: pixelated; 
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,.5));
+  /* --- 3D КУБ ИЗ ТВОЕГО СКИНА --- */
+  .skin-3d {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-15deg) rotateY(-30deg);
+    animation: spin 10s infinite linear;
+    image-rendering: pixelated;
   }
+  @keyframes spin {
+    0% { transform: rotateX(-15deg) rotateY(0deg); }
+    100% { transform: rotateX(-15deg) rotateY(360deg); }
+  }
+  .face {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-image: url('ananasik.png');
+    background-size: 512px 512px; /* Увеличиваем текстуру, чтобы пиксели были четкими */
+  }
+  /* Вырезаем нужные стороны головы из файла */
+  .front  { background-position: -64px -64px; transform: translateZ(32px); }
+  .back   { background-position: -192px -64px; transform: rotateY(180deg) translateZ(32px); }
+  .right  { background-position: -128px -64px; transform: rotateY(90deg) translateZ(32px); }
+  .left   { background-position: -64px -64px; transform: rotateY(-90deg) translateZ(32px); }
+  .top    { background-position: -64px -128px; transform: rotateX(90deg) translateZ(32px); }
+  .bottom { background-position: -64px 0px; transform: rotateX(-90deg) translateZ(32px); }
 
   .player-info {
     padding: 15px;
@@ -398,8 +415,18 @@
       <div class="player-card reveal">
         <div class="player-rank">Хелпер</div>
         <div class="player-skin">
-          <!-- ССЫЛКА СТРОГО НА ТВОЙ ФАЙЛ -->
-          <img src="ananasik.png" alt="Скин ananasik" class="skin-head-img">
+          
+          <!-- НАЧАЛО 3D КУБА -->
+          <div class="skin-3d">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <!-- КОНЕЦ 3D КУБА -->
+
         </div>
         <div class="player-info">
           <div class="player-name">ananasik2222</div>
@@ -449,15 +476,8 @@
   });
 
   const onlineEl = document.getElementById('onlineCount');
-
-  function randomOnline(){
-    return Math.floor(Math.random() * 51);
-  }
-
-  function updateOnline(){
-    onlineEl.textContent = randomOnline();
-  }
-
+  function randomOnline(){ return Math.floor(Math.random() * 51); }
+  function updateOnline(){ onlineEl.textContent = randomOnline(); }
   updateOnline();
   setInterval(updateOnline, 15000);
 
@@ -465,6 +485,7 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
         entry.target.classList.add('active');
         observer.unobserve(entry.target);
       }
