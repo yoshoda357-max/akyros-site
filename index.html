@@ -235,7 +235,6 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* --- УНИВЕРСАЛЬНЫЙ 3D КУБ --- */
   .skin-3d {
     width: 64px;
     height: 64px;
@@ -258,7 +257,6 @@
     background-repeat: no-repeat;
   }
   
-  /* Координаты для текстуры 512x512 (стандартный HD скин) */
   .front  { background-position: -64px -64px;   transform: translateZ(32px); }
   .back   { background-position: -192px -64px;  transform: rotateY(180deg) translateZ(32px); }
   .right  { background-position: -128px -64px;  transform: rotateY(90deg) translateZ(32px); }
@@ -266,9 +264,9 @@
   .top    { background-position: -64px -128px;  transform: rotateX(90deg) translateZ(32px); }
   .bottom { background-position: -64px 0px;     transform: rotateX(-90deg) translateZ(32px); }
 
-  /* Картинки для каждого игрока */
   .img-ananas { background-image: url('ananasik.png'); }
   .img-sasha  { background-image: url('Sasha_Russ2012.png'); }
+  .img-admin  { background-image: url('akakinita.png'); }
 
   .player-info {
     padding: 15px;
@@ -351,6 +349,7 @@
   .cards .card:nth-child(4) { transition-delay: 0.4s; }
   .team-grid .player-card:nth-child(1) { transition-delay: 0.1s; }
   .team-grid .player-card:nth-child(2) { transition-delay: 0.2s; }
+  .team-grid .player-card:nth-child(3) { transition-delay: 0.3s; }
 
   @media(max-width:600px){
     nav a{margin-left:14px;font-size:.85rem}
@@ -420,7 +419,6 @@
     
     <div class="team-grid">
       
-      <!-- Карточка 1: Ананасик -->
       <div class="player-card reveal">
         <div class="player-rank">Хелпер</div>
         <div class="player-skin">
@@ -439,7 +437,6 @@
         </div>
       </div>
 
-      <!-- Карточка 2: Саша -->
       <div class="player-card reveal">
         <div class="player-rank">Мл. Модератор</div>
         <div class="player-skin">
@@ -455,6 +452,24 @@
         <div class="player-info">
           <div class="player-name">Sasha_Russ2012</div>
           <div class="player-title">🛡️ На страже порядка</div>
+        </div>
+      </div>
+
+      <div class="player-card reveal">
+        <div class="player-rank">Админ</div>
+        <div class="player-skin">
+          <div class="skin-3d">
+            <div class="face front img-admin"></div>
+            <div class="face back img-admin"></div>
+            <div class="face right img-admin"></div>
+            <div class="face left img-admin"></div>
+            <div class="face top img-admin"></div>
+            <div class="face bottom img-admin"></div>
+          </div>
+        </div>
+        <div class="player-info">
+          <div class="player-name">akakinita</div>
+          <div class="player-title">👑 Владелец сервера</div>
         </div>
       </div>
 
