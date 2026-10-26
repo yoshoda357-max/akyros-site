@@ -235,7 +235,6 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* --- УНИВЕРСАЛЬНЫЙ 3D КУБ --- */
   .skin-3d {
     width: 64px;
     height: 64px;
@@ -252,15 +251,16 @@
   
   .face {
     position: absolute;
-    width: 64px;
-    height: 64px;
+    /* Делаем грани чуть больше (на 1px), чтобы они перекрывали друг друга и не было щелей */
+    width: 65px; 
+    height: 65px;
+    top: -0.5px;
+    left: -0.5px;
     background-image: url('ananasik.png');
-    /* Указываем размер текстуры 512x512, чтобы браузер не путался */
     background-size: 512px 512px; 
     background-repeat: no-repeat;
   }
   
-  /* Координаты для текстуры 512x512 (стандартный HD скин) */
   .front  { background-position: -64px -64px;   transform: translateZ(32px); }
   .back   { background-position: -192px -64px;  transform: rotateY(180deg) translateZ(32px); }
   .right  { background-position: -128px -64px;  transform: rotateY(90deg) translateZ(32px); }
