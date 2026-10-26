@@ -224,8 +224,8 @@
     padding: 20px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 140px;
+    align-items: flex-end;
+    height: 160px;
     background-image: 
       linear-gradient(45deg, #131b2f 25%, transparent 25%), 
       linear-gradient(-45deg, #131b2f 25%, transparent 25%), 
@@ -235,12 +235,12 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* Стиль для идеального 3D-рендера от MineSkin */
+  /* Стиль для полноценной 3D-модели */
   .skin-img-render {
-    height: 120px; /* Подгоняем высоту под карточку */
+    height: 140px;
     width: auto;
     filter: drop-shadow(0 5px 10px rgba(0,0,0,.5));
-    image-rendering: pixelated; /* Сохраняем пиксельность текстур Minecraft */
+    image-rendering: pixelated;
   }
 
   .player-info {
@@ -394,11 +394,12 @@
       <div class="player-card reveal">
         <div class="player-rank">Хелпер</div>
         <div class="player-skin">
-          <!-- ИДЕАЛЬНЫЙ 3D РЕНДЕР ОТ MINESKIN -->
-          <img src="https://api.mineskin.org/render/head?url=minesk.in/08e1353196c7414ca3ae9c985a108c05" 
+          
+          <!-- 3D МОДЕЛЬ ПО ПРЯМОЙ ССЫЛКЕ НА ТЕКСТУРУ -->
+          <img src="https://crafatar.com/renders/body/5a38b7c1b1ab4c7d93ab73d93bc7cd88?overlay" 
                alt="Скин ananasik2222" 
-               class="skin-img-render"
-               onerror="this.src='ananasik.png'; this.className='skin-head-img'; this.style.width='64px'; this.style.height='64px'; this.style.objectFit='none'; this.style.objectPosition='-8px -8px'; this.style.transform='scale(2.5)';">
+               class="skin-img-render">
+
         </div>
         <div class="player-info">
           <div class="player-name">ananasik2222</div>
