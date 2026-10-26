@@ -224,7 +224,7 @@
     padding: 20px 0;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     height: 140px;
     background-image: 
       linear-gradient(45deg, #131b2f 25%, transparent 25%), 
@@ -235,11 +235,16 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  .skin-img {
-    height: 120px;
-    width: auto;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,.5));
+  /* НАСТРОЙКА ВЫРЕЗАНИЯ ГОЛОВЫ ИЗ ТВОЕГО ФАЙЛА */
+  .skin-head-img {
+    width: 8px;               /* Базовый размер текстурки */
+    height: 8px;
+    object-fit: none;         /* Отключаем сжатие картинки */
+    object-position: -8px -8px; /* Берем ровно лицо (верхний левый угол) */
+    transform: scale(8);      /* Увеличиваем картинку в 8 раз для четкости */
+    transform-origin: center;
     image-rendering: pixelated; 
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,.5));
   }
 
   .player-info {
@@ -393,8 +398,8 @@
       <div class="player-card reveal">
         <div class="player-rank">Хелпер</div>
         <div class="player-skin">
-          <!-- ТУТ МЫ ИСПОЛЬЗУЕМ 3D МОДЕЛЬ ПО НИКУ -->
-          <img src="https://mc-heads.net/body/ananasik2222/right" alt="Скин ananasik2222" class="skin-img">
+          <!-- ССЫЛКА СТРОГО НА ТВОЙ ФАЙЛ -->
+          <img src="ananasik.png" alt="Скин ananasik" class="skin-head-img">
         </div>
         <div class="player-info">
           <div class="player-name">ananasik2222</div>
