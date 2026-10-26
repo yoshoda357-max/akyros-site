@@ -235,7 +235,7 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* --- ИДЕАЛЬНЫЙ 3D КУБ ИЗ СКИНА 64x64 --- */
+  /* --- УНИВЕРСАЛЬНЫЙ 3D КУБ --- */
   .skin-3d {
     width: 64px;
     height: 64px;
@@ -254,19 +254,19 @@
     position: absolute;
     width: 64px;
     height: 64px;
-    /* Указываем картинку и РАЗМЕР ТЕКСТУРЫ 64x64, чтобы координаты совпали */
     background-image: url('ananasik.png');
-    background-size: 64px 64px; 
+    /* Указываем размер текстуры 512x512, чтобы браузер не путался */
+    background-size: 512px 512px; 
     background-repeat: no-repeat;
   }
   
-  /* Точные координаты сторон головы из файла скина */
-  .front  { background-position: -8px -8px;   transform: translateZ(32px); }
-  .back   { background-position: -24px -8px;  transform: rotateY(180deg) translateZ(32px); }
-  .right  { background-position: -16px -8px;  transform: rotateY(90deg) translateZ(32px); }
-  .left   { background-position: 0px -8px;    transform: rotateY(-90deg) translateZ(32px); }
-  .top    { background-position: -8px -16px;  transform: rotateX(90deg) translateZ(32px); }
-  .bottom { background-position: -8px 0px;    transform: rotateX(-90deg) translateZ(32px); }
+  /* Координаты для текстуры 512x512 (стандартный HD скин) */
+  .front  { background-position: -64px -64px;   transform: translateZ(32px); }
+  .back   { background-position: -192px -64px;  transform: rotateY(180deg) translateZ(32px); }
+  .right  { background-position: -128px -64px;  transform: rotateY(90deg) translateZ(32px); }
+  .left   { background-position: 0px -64px;     transform: rotateY(-90deg) translateZ(32px); }
+  .top    { background-position: -64px -128px;  transform: rotateX(90deg) translateZ(32px); }
+  .bottom { background-position: -64px 0px;     transform: rotateX(-90deg) translateZ(32px); }
 
   .player-info {
     padding: 15px;
