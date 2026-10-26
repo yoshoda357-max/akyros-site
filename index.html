@@ -235,7 +235,7 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* --- 3D КУБ ИЗ ТВОЕГО СКИНА --- */
+  /* --- ИДЕАЛЬНЫЙ 3D КУБ ИЗ СКИНА 64x64 --- */
   .skin-3d {
     width: 64px;
     height: 64px;
@@ -249,20 +249,24 @@
     0% { transform: rotateX(-15deg) rotateY(0deg); }
     100% { transform: rotateX(-15deg) rotateY(360deg); }
   }
+  
   .face {
     position: absolute;
     width: 64px;
     height: 64px;
+    /* Указываем картинку и РАЗМЕР ТЕКСТУРЫ 64x64, чтобы координаты совпали */
     background-image: url('ananasik.png');
-    background-size: 512px 512px; /* Увеличиваем текстуру, чтобы пиксели были четкими */
+    background-size: 64px 64px; 
+    background-repeat: no-repeat;
   }
-  /* Вырезаем нужные стороны головы из файла */
-  .front  { background-position: -64px -64px; transform: translateZ(32px); }
-  .back   { background-position: -192px -64px; transform: rotateY(180deg) translateZ(32px); }
-  .right  { background-position: -128px -64px; transform: rotateY(90deg) translateZ(32px); }
-  .left   { background-position: -64px -64px; transform: rotateY(-90deg) translateZ(32px); }
-  .top    { background-position: -64px -128px; transform: rotateX(90deg) translateZ(32px); }
-  .bottom { background-position: -64px 0px; transform: rotateX(-90deg) translateZ(32px); }
+  
+  /* Точные координаты сторон головы из файла скина */
+  .front  { background-position: -8px -8px;   transform: translateZ(32px); }
+  .back   { background-position: -24px -8px;  transform: rotateY(180deg) translateZ(32px); }
+  .right  { background-position: -16px -8px;  transform: rotateY(90deg) translateZ(32px); }
+  .left   { background-position: 0px -8px;    transform: rotateY(-90deg) translateZ(32px); }
+  .top    { background-position: -8px -16px;  transform: rotateX(90deg) translateZ(32px); }
+  .bottom { background-position: -8px 0px;    transform: rotateX(-90deg) translateZ(32px); }
 
   .player-info {
     padding: 15px;
@@ -416,7 +420,6 @@
         <div class="player-rank">Хелпер</div>
         <div class="player-skin">
           
-          <!-- НАЧАЛО 3D КУБА -->
           <div class="skin-3d">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -425,7 +428,6 @@
             <div class="face top"></div>
             <div class="face bottom"></div>
           </div>
-          <!-- КОНЕЦ 3D КУБА -->
 
         </div>
         <div class="player-info">
@@ -485,7 +487,6 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
         entry.target.classList.add('active');
         observer.unobserve(entry.target);
       }
