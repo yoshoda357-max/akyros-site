@@ -235,7 +235,7 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
   
-  /* --- 3D КУБ С МАСКИРОВКОЙ ШВОВ --- */
+  /* --- УНИВЕРСАЛЬНЫЙ 3D КУБ --- */
   .skin-3d {
     width: 64px;
     height: 64px;
@@ -244,8 +244,6 @@
     transform: rotateX(-15deg) rotateY(-30deg);
     animation: spin 10s infinite linear;
     image-rendering: pixelated;
-    /* Тень позади куба маскирует любые просветы */
-    filter: drop-shadow(0 0 2px #0a1128); 
   }
   @keyframes spin {
     0% { transform: rotateX(-15deg) rotateY(0deg); }
@@ -257,15 +255,12 @@
     width: 64px;
     height: 64px;
     background-image: url('ananasik.png');
+    /* Указываем размер текстуры 512x512, чтобы браузер не путался */
     background-size: 512px 512px; 
     background-repeat: no-repeat;
-    /* Убираем просвечивание задних граней */
-    backface-visibility: hidden;
-    /* Делаем микро-обводку */
-    outline: 1px solid transparent;
   }
   
-  /* Точные координаты сторон */
+  /* Координаты для текстуры 512x512 (стандартный HD скин) */
   .front  { background-position: -64px -64px;   transform: translateZ(32px); }
   .back   { background-position: -192px -64px;  transform: rotateY(180deg) translateZ(32px); }
   .right  { background-position: -128px -64px;  transform: rotateY(90deg) translateZ(32px); }
